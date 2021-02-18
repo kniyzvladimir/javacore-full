@@ -25,19 +25,16 @@ public class Deal {
     public Deal() {
     }
 
-    public void confirmDeal(boolean status, Date dateConfirmed) {
-        isConfirmed = status;
-        this.dateConfirmed = dateConfirmed;
+    public void confirmDeal() {
+        isConfirmed = true;
+        dateConfirmed = new Date();
     }
 
-    public boolean checkPrice(int price) {
-        return price > 1000 ? true : false;
+    public boolean checkPrice() {
+        return price > 1000;
     }
 
-    public boolean isValidType(int buy, int sale) {
-        if (buy > 0 && sale > 0)
-            return true;
-        return false;
+    public boolean isValidType() {
+        return type.equals("Buy") || type.equals("Sale");
     }
 }
-

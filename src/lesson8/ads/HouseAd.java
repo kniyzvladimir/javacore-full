@@ -1,12 +1,12 @@
 package lesson8.ads;
 
-public class HauseAd extends Ad{
+public class HouseAd extends Ad{
     String ownerName;
     String address;
     double square;
     int floors;
 
-    public HauseAd(long id, int price, String ownerName, String address, double square, int floors) {
+    public HouseAd(long id, int price, String ownerName, String address, double square, int floors) {
         super(id, price);
         this.ownerName = ownerName;
         this.address = address;

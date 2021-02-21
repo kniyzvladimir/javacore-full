@@ -87,5 +87,23 @@ public class UserRepository {
         users[freeIndex] = user;
         return user;
     }
+
+    public User update(User user) {
+        for (int i = 0; i < users.length; i++) {
+            if (users[i] == user) {
+                users[i] = user;
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public void delete(long id) {
+        for (int i = 0; i < users.length; i++) {
+            if (users[i].getId() == id)
+                users[i] = null;
+        }
+    }
+
 }
 

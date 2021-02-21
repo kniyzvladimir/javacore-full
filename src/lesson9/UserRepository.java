@@ -49,7 +49,7 @@ public class UserRepository {
         return null;
     }
 
-    public User getUserById(long id) {
+    private User findById(long id) {
         for (int i = 0; i < users.length; i++) {
             if (users[i].getId() == id) {
                 return users[i];
@@ -65,6 +65,27 @@ public class UserRepository {
             }
         }
         return null;
+    }
+
+    private int freeIndex() {
+        int freeIndex;
+        for (int i = 0; i < users.length; i++) {
+            if (users[i] == null) {
+                freeIndex = i;
+                return freeIndex;
+            }
+        }
+        return -1;
+    }
+
+    public User save(User user) {
+        int freeIndex = freeIndex();
+        if (freeIndex == -1)
+            return null;
+        if (findById(user.getId()) == user)
+            return null;
+        users[freeIndex] = user;
+        return user;
     }
 }
 

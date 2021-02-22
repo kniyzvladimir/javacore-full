@@ -1,2 +1,4 @@
-package lesson9.clasWork;public class Employee {
+package lesson9.clasWork;
+
+public class Employee {
 }

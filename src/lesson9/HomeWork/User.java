@@ -1,4 +1,4 @@
-package lesson9;
+package lesson9.HomeWork;
 
 public class User {
     private long id;

@@ -4,9 +4,15 @@ import java.util.Arrays;
 
 public class UserRepositoryP2 {
     public static void main(String[] args) {
-        User [] users = new User[10];
+        User user1 = new User(654, "k", "kik");
+        User user2 = new User(4, "jk", "kk");
+        User user3 = new User(54, "kuyu", "kjmik");
+
+        User[] users = {null, null, null, null, user1, user2, user3};
         UserRepositoryP2 userRepositoryP2 = new UserRepositoryP2(users);
-        System.out.println(userRepositoryP2.getUserNameById(5));
+        System.out.println(Arrays.toString(userRepositoryP2.getUserNames()));
+        System.out.println(Arrays.toString(userRepositoryP2.getUserIds()));
+        System.out.println(userRepositoryP2.getUserNameById(54));
     }
 
     private User[] users;
@@ -16,38 +22,49 @@ public class UserRepositoryP2 {
     }
 
     public String[] getUserNames() {
-        int lenArray = users.length;
+        int lenArray = 0;
+        int index = 0;
+        for (int i = 0; i < users.length; i++) {
+            if (users[i] != null)
+                lenArray++;
+        }
         String[] usersNames = new String[lenArray];
-        for (int i = 0; i < lenArray; i++) {
+        for (int i = 0; i < users.length; i++) {
             if (users[i] == null)
-                usersNames[i] = null;
-            else
-                usersNames[i] = users[i].getName();
+                continue;
+            else {
+                usersNames[index] = users[i].getName();
+                index++;
+            }
         }
         return usersNames;
     }
 
     public long[] getUserIds() {
-        int lenArray = users.length;
+        int lenArray = 0;
+        int index = 0;
+        for (int i = 0; i < users.length; i++) {
+            if (users[i] != null)
+                lenArray++;
+        }
         long[] usersIds = new long[lenArray];
-        for (int i = 0; i < lenArray; i++) {
+        for (int i = 0; i < users.length; i++) {
             if (users[i] == null)
-                usersIds[i] = 0;
-            else
-                usersIds[i] = users[i].getId();
+                continue;
+            else {
+                usersIds[index] = users[i].getId();
+                index++;
+            }
         }
         return usersIds;
     }
 
     public String getUserNameById(long id) {
-        int count = 0;
         for (int i = 0; i < users.length; i++) {
-            if (users[i]==null)
-                count++;
+            if (users[i] == null)
+                continue;
             else if (users[i].getId() == id)
                 return users[i].getName();
-            if (count == users.length)
-                return null;
         }
         return null;
     }

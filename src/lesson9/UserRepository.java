@@ -7,30 +7,24 @@ public class UserRepository {
         this.users = users;
     }
 
-    public User getUserByName(String name) {
-        for (int i = 0; i < users.length; i++) {
-            if (users[i].getName().equals(name)) {
+    private User findById(long id) { // не понятно как я эту функцию должен использовать в User save(User user)
+        for (int i = 0; i < users.length; i++)
+            if (users[i].getId() == id)
                 return users[i];
-            }
-        }
         return null;
     }
 
-    private User getUserById(long id) {
+    public User save(User user) {
+        int freeIndex = -1;
         for (int i = 0; i < users.length; i++) {
-            if (users[i].getId() == id) {
-                return users[i];
-            }
+            if (users[i] == user)
+                return null;
+            freeIndex = users[i] == null ? i : freeIndex;
         }
-        return null;
-    }
-
-    public User getUserBySessionId(String sessionId) {
-        for (int i = 0; i < users.length; i++) {
-            if (users[i].getSessionId() == sessionId) {
-                return users[i];
-            }
-        }
-        return null;
+        if (freeIndex == -1)
+            return null;
+        users[freeIndex] = user;
+        return user;
     }
 }
+

@@ -21,14 +21,18 @@ public class UserRepositoryP2 {
         this.users = users;
     }
 
-    public String[] getUserNames() {
+    private int lenArray() {
         int lenArray = 0;
-        int index = 0;
         for (int i = 0; i < users.length; i++) {
             if (users[i] != null)
                 lenArray++;
         }
-        String[] usersNames = new String[lenArray];
+        return lenArray;
+    }
+
+    public String[] getUserNames() {
+        int index = 0;
+        String[] usersNames = new String[lenArray()];
         for (int i = 0; i < users.length; i++) {
             if (users[i] == null)
                 continue;
@@ -41,13 +45,8 @@ public class UserRepositoryP2 {
     }
 
     public long[] getUserIds() {
-        int lenArray = 0;
         int index = 0;
-        for (int i = 0; i < users.length; i++) {
-            if (users[i] != null)
-                lenArray++;
-        }
-        long[] usersIds = new long[lenArray];
+        long[] usersIds = new long[lenArray()];
         for (int i = 0; i < users.length; i++) {
             if (users[i] == null)
                 continue;

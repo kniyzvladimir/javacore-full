@@ -34,9 +34,7 @@ public class UserRepositoryP2 {
         int index = 0;
         String[] usersNames = new String[lenArray()];
         for (int i = 0; i < users.length; i++) {
-            if (users[i] == null)
-                continue;
-            else {
+            if (users[i] != null) {
                 usersNames[index] = users[i].getName();
                 index++;
             }
@@ -48,9 +46,7 @@ public class UserRepositoryP2 {
         int index = 0;
         long[] usersIds = new long[lenArray()];
         for (int i = 0; i < users.length; i++) {
-            if (users[i] == null)
-                continue;
-            else {
+            if (users[i] != null){
                 usersIds[index] = users[i].getId();
                 index++;
             }
@@ -60,9 +56,7 @@ public class UserRepositoryP2 {
 
     public String getUserNameById(long id) {
         for (int i = 0; i < users.length; i++) {
-            if (users[i] == null)
-                continue;
-            else if (users[i].getId() == id)
+            if (users[i] != null && users[i].getId() == id)
                 return users[i].getName();
         }
         return null;

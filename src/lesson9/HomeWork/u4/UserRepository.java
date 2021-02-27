@@ -1,4 +1,5 @@
-package lesson9.HomeWork;
+package lesson9.HomeWork.u4;
+
 
 public class UserRepository {
     private User[] users;
@@ -9,16 +10,18 @@ public class UserRepository {
 
     private User findById(long id) {
         for (int i = 0; i < users.length; i++) {
-            if (users[i].getId() == id) {
+            if (users[i] != null && users[i].getId() == id) {
                 return users[i];
             }
         }
         return null;
     }
 
-    public User update(User user) {
-        for (int i = 0; i < users.length; i++) {
-            if (users[i] == user) {
+    public User save(User user) {
+        if (findById(user.getId()) == user)
+            return null;
+        for (int i = 0; i < users.length; i++){
+            if (users[i] == null) {
                 users[i] = user;
                 return user;
             }
@@ -26,10 +29,4 @@ public class UserRepository {
         return null;
     }
 
-    public void delete(long id) {
-        for (int i = 0; i < users.length; i++) {
-            if (users[i].getId() == id)
-                users[i] = null;
-        }
-    }
 }

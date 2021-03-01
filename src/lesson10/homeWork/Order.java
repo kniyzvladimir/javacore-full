@@ -75,4 +75,12 @@ public abstract class Order {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+    public boolean stringInArray(String [] array, String string){
+        for (int i = 0; i < array.length; i++){
+            if (array[i].equals(string))
+                return true;
+        }
+        return false;
+    }
 }

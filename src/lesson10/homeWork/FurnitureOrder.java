@@ -8,15 +8,11 @@ public class FurnitureOrder extends Order{
     public FurnitureOrder(String itemName, Date dateCreated, String shipFromCity, String shipToCity, int basePrice, Customer customerOwned) {
         super(itemName, dateCreated, shipFromCity, shipToCity, basePrice, customerOwned);
     }
+    String [] shipFromCitiesAllowed = {"Киев", "Львов"};
+
     public void validateOrder(){
-        switch (this.getShipFromCity()) {
-            case "Киев":
-            case "Львов":
-                break;
-            default:
-                System.out.println("Город отправки не валиден");
-                break;
-        }
+        if (stringInArray(this.shipFromCitiesAllowed, this.getShipFromCity()) == false)
+            System.out.println("Город отправки не валиден");
         if (this.getTotalPrice() < 500)
             System.out.println("Минимальная сумма заказа 500");
         if (this.getCustomerOwned().getName().equals("Тест"))

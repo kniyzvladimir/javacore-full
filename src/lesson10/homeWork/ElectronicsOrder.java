@@ -8,28 +8,15 @@ public class ElectronicsOrder extends Order {
     public ElectronicsOrder(String itemName, Date dateCreated, String shipFromCity, String shipToCity, int basePrice, Customer customerOwned) {
         super(itemName, dateCreated, shipFromCity, shipToCity, basePrice, customerOwned);
     }
+    String [] shipFromCitiesAllowed = {"Киев", "Одесса", "Днепр", "Харьков"};
+    String [] shipToCitiesAllowed = {"Киев", "Одесса", "Днепр", "Харьков"};
 
     public void validateOrder() {
-        switch (this.getShipFromCity()) {
-            case "Киев":
-            case "Одесса":
-            case "Днепр":
-            case "Харьков":
-                break;
-            default:
+        if (stringInArray(this.shipFromCitiesAllowed, this.getShipFromCity()) == false)
                 System.out.println("Город отправки не валиден");
-                break;
-        }
-        switch (this.getShipToCity()) {
-            case "Киев":
-            case "Одесса":
-            case "Днепр":
-            case "Харьков":
-                break;
-            default:
-                System.out.println("Город доставки не валиден");
-                break;
-        }
+        if (stringInArray(this.shipToCitiesAllowed, this.getShipToCity()) == false)
+            System.out.println("Город доставки не валиден");
+
         if (this.getTotalPrice() < 100)
             System.out.println("Минимальная сумма заказа 100");
         if (this.getCustomerOwned().getGender().equals("Женский") == false)

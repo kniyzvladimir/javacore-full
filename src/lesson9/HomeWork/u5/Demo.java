@@ -1,5 +1,4 @@
-package lesson9.HomeWork.u4;
-
+package lesson9.HomeWork.u5;
 
 import java.util.Arrays;
 
@@ -11,14 +10,14 @@ public class Demo {
         User user4 = new User(52, "D", "mik");
 
 
-
-
         User[] users = {null, null, null, null, user1, user2, user3};
         UserRepository userRepository = new UserRepository(users);
 
-        System.out.println(userRepository.save(user3));
-        System.out.println(userRepository.save(user4).getName());
+        System.out.println(userRepository.update(userRepository.update(user2)));
+        userRepository.delete(4);
+        System.out.println(userRepository.update(userRepository.update(user2)));
 
     }
 
 }
+

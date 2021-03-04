@@ -18,7 +18,7 @@ public class UserRepository {
 
     public User update(User user) {
         for (int i = 0; i < users.length; i++){
-            if (users[i] == user){
+            if (users[i].getId() == user.getId()){
                 users[i] = user;
                 return user;
             }
@@ -27,15 +27,14 @@ public class UserRepository {
     }
 
     public void delete(long id) {
-        User user = findById(id);
         for (int i = 0; i < users.length; i++) {
-            if (users[i] == user)
+            if (users[i].getId() == id)
                 users[i] = null;
         }
     }
 
     public User save(User user) {
-        if (findById(user.getId()) == user)
+        if (findById(user.getId()).getId() == user.getId())
             return null;
         for (int i = 0; i < users.length; i++){
             if (users[i] == null) {

@@ -34,7 +34,7 @@ public class UserRepository {
     }
 
     public User save(User user) {
-        if (findById(user.getId()).getId() == user.getId())
+        if (findById(user.getId()) != null && findById(user.getId()).getId() == user.getId())
             return null;
         for (int i = 0; i < users.length; i++){
             if (users[i] == null) {

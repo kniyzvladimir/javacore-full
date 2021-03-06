@@ -12,14 +12,14 @@ public class ElectronicsOrder extends Order {
     String [] shipToCitiesAllowed = {"Киев", "Одесса", "Днепр", "Харьков"};
 
     public void validateOrder() {
-        if (stringInArray(this.shipFromCitiesAllowed, this.getShipFromCity()) == false)
+        if (!stringInArray(this.shipFromCitiesAllowed, this.getShipFromCity()))
                 System.out.println("Город отправки не валиден");
-        if (stringInArray(this.shipToCitiesAllowed, this.getShipToCity()) == false)
+        if (!stringInArray(this.shipToCitiesAllowed, this.getShipToCity()))
             System.out.println("Город доставки не валиден");
 
         if (this.getTotalPrice() < 100)
             System.out.println("Минимальная сумма заказа 100");
-        if (this.getCustomerOwned().getGender().equals("Женский") == false)
+        if (!this.getCustomerOwned().getGender().equals("Женский"))
             System.out.println("Покупатель может быть только женского пола");
     }
 

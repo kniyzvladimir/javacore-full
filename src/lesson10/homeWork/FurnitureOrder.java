@@ -11,7 +11,7 @@ public class FurnitureOrder extends Order{
     String [] shipFromCitiesAllowed = {"Киев", "Львов"};
 
     public void validateOrder(){
-        if (stringInArray(this.shipFromCitiesAllowed, this.getShipFromCity()) == false)
+        if (!stringInArray(this.shipFromCitiesAllowed, this.getShipFromCity()))
             System.out.println("Город отправки не валиден");
         if (this.getTotalPrice() < 500)
             System.out.println("Минимальная сумма заказа 500");

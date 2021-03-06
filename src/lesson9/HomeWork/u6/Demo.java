@@ -1,4 +1,4 @@
-package lesson9.HomeWork.u4;
+package lesson9.HomeWork.u6;
 
 public class Demo {
     public static void main(String[] args) {
@@ -6,7 +6,6 @@ public class Demo {
         User user2 = new User(4, "B", "kk");
         User user3 = new User(54, "C", "kjmik");
         User user4 = new User(52, "D", "mik");
-
 
 
 
